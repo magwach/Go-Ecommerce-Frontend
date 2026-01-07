@@ -40,13 +40,13 @@ export const RegisterApi = async ({
 
 export const GetVerificationCode = async (token: string) => {
   const auth = axiosAuth();
-  const response = await auth.get(`${BASE_URL}/users/verify`);
+  const response = await auth.get(`${BASE_URL}/users/me/verify`);
   return response.data;
 };
 
 export const VerifyCode = async (token: string, code: string) => {
   const auth = axiosAuth();
-  const response = await auth.post(`${BASE_URL}/users/verify`, {
+  const response = await auth.post(`${BASE_URL}/users/me/verify`, {
     code: Number(code),
   });
   return response.status;
@@ -54,6 +54,6 @@ export const VerifyCode = async (token: string, code: string) => {
 
 export const GetProfile = async (token: string) => {
   const auth = axiosAuth();
-  const response = await auth.get(`${BASE_URL}/users/profile`);
+  const response = await auth.get(`${BASE_URL}/users/me/profile`);
   return response.data;
 };

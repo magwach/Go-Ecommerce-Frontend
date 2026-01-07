@@ -34,7 +34,7 @@ export const FetchOrderItemsApi = async (token: string) => {
 export const FetchCategories = async () => {
   try {
     const response = await axios.get(`${PRODUCT_URL}/categories`);
-    console.log("Response", response)
+    console.log("Response", response);
     return response.data;
   } catch (error) {
     console.log(error);

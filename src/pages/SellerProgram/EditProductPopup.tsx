@@ -73,12 +73,12 @@ export const EditProductPopup: React.FC<EditProductProps> = ({
 
   const onTapEditProduct = async () => {
     const input: CreateProductInput = {
-      category_id: +catId,
+      category_id: catId,
       name: name,
       description: description,
       image_url: image,
       price: +price,
-      stock: +stock,
+      stock: { stock: +stock },
     };
 
     const status = await EditProduct(product?.id as number, input);

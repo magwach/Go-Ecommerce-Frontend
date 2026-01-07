@@ -6,7 +6,7 @@ export const JoinSellerProgramAPI = async (input: SellerProgramInput) => {
   try {
     console.log(JSON.stringify(input));
     const auth = axiosAuth();
-    const response = await auth.post(`${BASE_URL}/users/become-seller`, {
+    const response = await auth.post(`${BASE_URL}/users/me/become-seller`, {
       ...input,
     });
     return response.data;

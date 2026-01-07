@@ -21,9 +21,9 @@ const JoinSellerProgram: React.FC<SellerProgramProps> = ({}) => {
   const [last_name, setLastName] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
 
-  const [bankAccountNumber, setBankAccountNumber] = useState("");
+  const [bank_account_number, setbank_account_number] = useState("");
   const [confirmAccountNumber, setConfirmAccountNumber] = useState("");
-  const [swiftCode, setSwiftCode] = useState("");
+  const [swift_code, setswift_code] = useState("");
 
   const [regularPayout, setRegularPayout] = useState(true);
 
@@ -38,11 +38,11 @@ const JoinSellerProgram: React.FC<SellerProgramProps> = ({}) => {
       first_name,
       last_name,
       phone_number,
-      bankAccountNumber: +bankAccountNumber,
-      swiftCode,
-      paymentType: regularPayout ? "regular" : "weekly",
+      bank_account_number: bank_account_number,
+      swift_code,
+      payment_type: regularPayout ? "weekly" : "monthly",
     });
-    if (message === "become seller") {
+    if (message === "Sucessfully changed to seller") {
       // TODO: This should be status code
       if (token) {
         localStorage.setItem("token", token);
@@ -136,9 +136,9 @@ const JoinSellerProgram: React.FC<SellerProgramProps> = ({}) => {
                 size={13}
               />
               <TxtInput
-                value={bankAccountNumber}
+                value={bank_account_number}
                 placeholder="Bank Account Number"
-                onChange={setBankAccountNumber}
+                onChange={setbank_account_number}
               />
             </ColDiv>
 
@@ -159,9 +159,9 @@ const JoinSellerProgram: React.FC<SellerProgramProps> = ({}) => {
               <Lbl title="Swift Code" color={AppCSS.GRAY_DARK} size={13} />
 
               <TxtInput
-                value={swiftCode}
+                value={swift_code}
                 placeholder="Swift Code"
-                onChange={setSwiftCode}
+                onChange={setswift_code}
               />
             </ColDiv>
 

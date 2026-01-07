@@ -73,12 +73,12 @@ export const AddProductPopup: React.FC<AddProductProps> = ({
 
   const onTapCreate = async () => {
     const input: CreateProductInput = {
-      category_id: +catId,
+      category_id: catId,
       name,
       description,
       image_url: image,
       price: +price,
-      stock: +stock,
+      stock: { stock: +stock },
     };
 
     const status = await CreateProduct(input);
@@ -104,6 +104,8 @@ export const AddProductPopup: React.FC<AddProductProps> = ({
   const onSelectCat = (event: SelectChangeEvent) => {
     setCatId(event.target.value);
   };
+
+  console.log(categories);
 
   const displayCatagories = () => {
     if (Array.isArray(categories)) {
